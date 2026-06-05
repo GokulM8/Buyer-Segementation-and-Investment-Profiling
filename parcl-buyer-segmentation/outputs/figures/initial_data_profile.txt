@@ -1,0 +1,230 @@
+=== clients.csv ===
+shape: (2000, 12)
+
+# dtypes:
+client_id                str
+client_type              str
+first_name               str
+last_name                str
+date_of_birth            str
+gender                   str
+country                  str
+region                   str
+acquisition_purpose      str
+satisfaction_score     int64
+loan_applied             str
+referral_channel         str
+
+# missing per column:
+client_id              0
+client_type            0
+first_name             0
+last_name              0
+date_of_birth          0
+gender                 0
+country                0
+region                 0
+acquisition_purpose    0
+satisfaction_score     0
+loan_applied           0
+referral_channel       0
+
+# unique per column:
+client_id              2000
+client_type               2
+first_name              337
+last_name               224
+date_of_birth          1889
+gender                    2
+country                  10
+region                   57
+acquisition_purpose       2
+satisfaction_score        5
+loan_applied              2
+referral_channel          3
+
+# top 5 values for object cols:
+-- client_id top values:
+client_id
+C0001    1
+C0002    1
+C0003    1
+C0004    1
+C0005    1
+-- client_type top values:
+client_type
+Individual    1897
+Company        103
+-- first_name top values:
+first_name
+Carl       24
+Gerald     20
+Sarah      19
+Jason      19
+William    19
+-- last_name top values:
+last_name
+Co         103
+Howard      39
+Hansen      34
+Morales     34
+Cox         33
+-- date_of_birth top values:
+date_of_birth
+4/13/1967     3
+6/14/1993     3
+11-12-1995    3
+3/27/1975     3
+10/24/1973    3
+-- gender top values:
+gender
+M    1012
+F     988
+-- country top values:
+country
+USA        1538
+UK           95
+Canada       85
+Germany      56
+France       53
+-- region top values:
+region
+California    633
+Nevada        143
+Colorado      118
+Arizona       108
+Oregon         96
+-- acquisition_purpose top values:
+acquisition_purpose
+Home          1385
+Investment     615
+-- loan_applied top values:
+loan_applied
+No     1264
+Yes     736
+-- referral_channel top values:
+referral_channel
+Website    1103
+Agency      705
+Client      192
+
+# describe (numeric + object):
+                      count unique         top  freq   mean       std  min  25%  50%  75%  max
+client_id              2000   2000       C0001     1    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+client_type            2000      2  Individual  1897    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+first_name             2000    337        Carl    24    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+last_name              2000    224          Co   103    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+date_of_birth          2000   1889   4/13/1967     3    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+gender                 2000      2           M  1012    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+country                2000     10         USA  1538    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+region                 2000     57  California   633    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+acquisition_purpose    2000      2        Home  1385    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+satisfaction_score   2000.0    NaN         NaN   NaN  3.029  1.413562  1.0  2.0  3.0  4.0  5.0
+loan_applied           2000      2          No  1264    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+referral_channel       2000      3     Website  1103    NaN       NaN  NaN  NaN  NaN  NaN  NaN
+
+# numeric correlation:
+                    satisfaction_score
+satisfaction_score                 1.0
+
+# head (5 rows):
+client_id client_type first_name last_name date_of_birth gender country     region acquisition_purpose  satisfaction_score loan_applied referral_channel
+    C0001  Individual     Kareem       Liu    05-11-1968      F     USA California                Home                   4          Yes          Website
+    C0002  Individual    Trystan   Oconnor    11/26/1962      M     USA California                Home                   1           No          Website
+    C0003  Individual       Kale       Gay    04-07-1959      M     USA California                Home                   4          Yes           Agency
+    C0004  Individual    Russell     Gross    11/25/1959      M     USA California                Home                   5           No          Website
+    C0005     Company    Marleez        Co     2/28/1976      M     USA California          Investment                   5           No          Website
+
+=== properties.csv ===
+shape: (10000, 9)
+
+# dtypes:
+listing_id            int64
+tower_number          int64
+transaction_date        str
+unit_category           str
+unit_number           int64
+floor_area_sqft     float64
+sale_price              str
+listing_status          str
+client_ref              str
+
+# missing per column:
+listing_id             0
+tower_number           0
+transaction_date       0
+unit_category          0
+unit_number            0
+floor_area_sqft        0
+sale_price             0
+listing_status         0
+client_ref          2695
+
+# unique per column:
+listing_id          10000
+tower_number           20
+transaction_date       24
+unit_category           2
+unit_number            70
+floor_area_sqft      1208
+sale_price           9998
+listing_status          2
+client_ref           2001
+
+# top 5 values for object cols:
+-- transaction_date top values:
+transaction_date
+06-01-2024    537
+04-01-2024    518
+07-01-2024    517
+02-01-2024    510
+03-01-2024    508
+-- unit_category top values:
+unit_category
+Apartment    8547
+Office       1453
+-- sale_price top values:
+sale_price
+$460,001.26    2
+$342,414.51    2
+$300,385.62    1
+$208,930.81    1
+$218,585.92    1
+-- listing_status top values:
+listing_status
+Sold         7305
+Available    2695
+-- client_ref top values:
+client_ref
+NaN      2695
+C0005      13
+C0007      11
+C0026      10
+C0161       9
+
+# describe (numeric + object):
+                    count unique          top  freq         mean           std     min       25%       50%        75%       max
+listing_id        10000.0    NaN          NaN   NaN  105898.2774  74414.566199  1002.0  50389.75  100404.5  150411.25  990026.0
+tower_number      10000.0    NaN          NaN   NaN      10.3701      5.769025     1.0       5.0      10.0       15.0      20.0
+transaction_date    10000     24   06-01-2024   537          NaN           NaN     NaN       NaN       NaN        NaN       NaN
+unit_category       10000      2    Apartment  8547          NaN           NaN     NaN       NaN       NaN        NaN       NaN
+unit_number       10000.0    NaN          NaN   NaN      28.9992      16.88242     1.0      15.0      29.0       43.0      70.0
+floor_area_sqft   10000.0    NaN          NaN   NaN  1139.941412    418.373967  410.71     782.2   1110.88     1499.0   1957.16
+sale_price          10000   9998  $460,001.26     2          NaN           NaN     NaN       NaN       NaN        NaN       NaN
+listing_status      10000      2         Sold  7305          NaN           NaN     NaN       NaN       NaN        NaN       NaN
+client_ref           7305   2000        C0005    13          NaN           NaN     NaN       NaN       NaN        NaN       NaN
+
+# numeric correlation:
+                 listing_id  tower_number  unit_number  floor_area_sqft
+listing_id            1.000         0.742        0.031            0.128
+tower_number          0.742         1.000        0.032            0.175
+unit_number           0.031         0.032        1.000            0.038
+floor_area_sqft       0.128         0.175        0.038            1.000
+
+# head (5 rows):
+ listing_id  tower_number transaction_date unit_category  unit_number  floor_area_sqft  sale_price listing_status client_ref
+       1012             1       01-01-2024     Apartment           12          1160.36 $300,385.62           Sold      C0027
+       1015             1       01-01-2024     Apartment           15           782.25 $208,930.81           Sold      C0097
+       1021             1       01-01-2024     Apartment           21           756.21 $218,585.92           Sold      C0113
+       1030             1       01-01-2024     Apartment           30           743.09 $246,172.68           Sold      C0141
+       2016             2       01-01-2024     Apartment           16           701.66 $212,265.67           Sold      C0146
